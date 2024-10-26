@@ -1,0 +1,293 @@
+<html lang="en"><head></head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GigConnect - Tutorial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <div id="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="GigConnect" class="logo-img">
+                </a>
+            </div>
+            <button class="navbar-toggler" id="hammer" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <!-- Home Link -->
+                    <li class="nav-item">
+                        <a class="nav-link animated-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+    
+                
+    
+                    <!-- Contact Us Link -->
+                    <li class="nav-item">
+                        <a class="nav-link animated-link" href="#contact">Contact us</a>
+                    </li>
+    
+                    <!-- Find Workers Link -->
+                    <li class="nav-item">
+                        <a class="nav-link animated-link" href="fetch_worker.php">Find Workers</a>
+                    </li>
+    
+                    <!-- Gig Login Button -->
+                    <li class="nav-item">
+                        <a class="nav-link animated-link" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="toggle()" id="giglogin">Gig Worker Login</a>
+                    </li>
+    
+                    <!-- Worker Registration Button -->
+                    <li class="nav-item">
+                        <a class="nav-link  animated-link" id="gig" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="toggle()">Worker Registration</a>
+                    </li>
+    
+                    <!-- Industry Registration Link -->
+                    <li class="nav-item">
+                        <a class="nav-link animated-link" href="industry_registration.html" id="industry">Industry Registration</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+<!-- Login Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content modal-arrival-animation">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <section id="login">
+                    <div class="form-container">
+                        <form action="login.php" method="post">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" class="form-control" required>
+
+                            <input type="submit" value="Login" class="btn btn-primary">
+                        </form>
+                        <div class="forgot-password">
+                            <button type="button" class="btn btn-link forgot-password-btn" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Forgot Password?</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary custom-btn" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Forgot Password Modal -->
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-arrival-animation">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="forgotPasswordLabel">Forgot Password</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="forgot_password.php" method="post">
+                    <label for="forgot-email">Email:</label>
+                    <input type="email" id="forgot-email" name="email" class="form-control" required>
+
+                    <label for="forgot-phone">Mobile Number:</label>
+                    <input type="text" id="forgot-phone" name="phone" class="form-control" required>
+
+                    <input type="submit" value="Reset Password" class="btn btn-primary">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary custom-btn" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Register Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-arrival-animation">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Gig Worker Registration</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <section id="registration">
+                    <div class="form-container">
+                        <p>Please fill out the form below to register as a gig worker.</p>
+                        <form action="register.php" method="post">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Full Name:</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone:</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="pincode" class="form-label">Pincode:</label>
+                                <input type="text" id="pincode" name="pincode" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="work-preference" class="form-label">Work Preference:</label>
+                                <input type="text" id="work-preference" name="work_preference" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="skills" class="form-label">Current Skills:</label>
+                                <textarea id="skills" name="skills" class="form-control" rows="4" required></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password:</label>
+                                <input type="password" id="password" name="password" class="form-control" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
+
+    <div class="container">
+        <!-- Tutorial Header -->
+        <div class="video-container">
+            <h1 class="tutorial-header">Welcome to Our Website Tutorial</h1>
+            <p class="tutorial-description">Watch this video to learn how to navigate through our website, explore its features, and make the most of your experience.</p>
+            
+            <!-- Video Tutorial -->
+            <video controls>
+                <source src="gigconnectEdited.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+        </div>
+    </div>
+
+
+
+<!-- story -->
+<section class="worker-story-section">
+    <div class="story-container">
+        <div class="worker-image">
+            <img src="neha.jpg" alt="Gig Worker Image">
+        </div>
+        <div class="worker-story">
+            <h2 class="worker-name">Neha’s Journey: Crafting a Brighter Future with GigConnect
+            </h2>
+            <p class="worker-description">
+                Neha’s Journey: Crafting a Brighter Future with GigConnect
+
+                Meet Neha, a talented artisan from Bundelkhand, known for her exquisite handmade pottery. Despite her exceptional craftsmanship, Neha struggled to find customers and often faced long gaps between orders. She relied on word-of-mouth, but it wasn’t enough to sustain her livelihood. Frustrated and uncertain about her future, Neha felt her passion slowly fading.
+                
+                Everything changed when Neha stumbled upon GigConnect. Excited by the platform’s focus on empowering gig workers in her region, she quickly created a profile, showcasing her skills and unique creations. Almost instantly, she was matched with a local boutique in Jhansi looking for handcrafted items to sell in their store.
+                
+                "I was thrilled when I received my first order," Neha shares, her eyes lighting up. "GigConnect connected me with customers I never would have reached on my own. It felt like a dream come true!"
+                
+                But that was just the beginning. Through GigConnect, Neha received personalized recommendations for new techniques and trends in pottery. Eager to expand her skills, she enrolled in online workshops available through the platform. The knowledge she gained not only enhanced her artistry but also diversified her product range.
+                
+                "Thanks to GigConnect, I now create not just pottery but also decorative items that are in high demand," Neha explains. "I’ve seen a significant increase in my sales, and my confidence has soared."
+                
+                Today, Neha has a thriving business, with customers reaching out from all over Bundelkhand. She is proud to say, "I feel like I have a purpose again. GigConnect has transformed my passion into a sustainable livelihood."
+                
+                Join Neha and many others who have revitalized their crafts and built successful careers with GigConnect—where your talents find the opportunities they deserve!
+            </p>
+            <a href="index.html" class="btn btn-primary">Hire Neha</a>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content" >
+                <div id="logo" class="footer-logo" ><img src="logo.png" alt="GigConnect"></div>
+                <ul>
+                    <li><a href="https://www.freejobalert.com/mp-government-jobs/" target="_blank">Jobs Information</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="mailto:ankitgour19168893@gmail.com">Contact Us</a></li> <!-- Email Link -->
+    
+                    <li><a href="tel:+919399484597">+91 9399484597</a></li> <!-- Phone Number -->
+                </ul>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/gigconnect-findyourfit" target="_blank"><img src="linkedin.png"></a>
+                </div>
+                <p >© 2024 GigConnect. All rights reserved.</p>
+            </div>
+           <div id="contact"></div>
+    
+    
+           <div id="google_translate_element"></div>
+    
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+      }
+    </script>
+    
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+        </footer>
+        
+
+    <!-- Optional: Include jQuery and Bootstrap JS -->
+    <script src="index.js"></script>
+  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+</body>
+</html>

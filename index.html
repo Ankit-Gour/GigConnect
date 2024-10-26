@@ -1,0 +1,453 @@
+<html lang="en"><head></head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GigConnect - Find Your Fit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <div id="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="GigConnect" class="logo-img">
+                </a>
+            </div>
+            <button class="navbar-toggler" id="hammer" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <!-- Home Link -->
+                    <li class="nav-item">
+                        <a class="nav-link animated-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+    
+                    <!-- Features Link -->
+                    <li class="nav-item">
+                        <a class="nav-link animated-link" href="#features">Features</a>
+                    </li>
+    
+                    <!-- How it Works Link -->
+                    <li class="nav-item">
+                        <a class="nav-link animated-link" href="#how-it-works">How it works</a>
+                    </li>
+    
+                    <!-- Contact Us Link -->
+                    <li class="nav-item">
+                        <a class="nav-link animated-link" href="#contact">Contact us</a>
+                    </li>
+    
+                    <!-- Find Workers Link -->
+                    <li class="nav-item">
+                        <a class="nav-link animated-link" href="fetch_worker.php">Find Workers</a>
+                    </li>
+    
+                    <!-- Gig Login Button -->
+                    <li class="nav-item">
+                        <a class="nav-link animated-link" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="toggle()" id="giglogin">Gig Worker Login</a>
+                    </li>
+    
+                    <!-- Worker Registration Button -->
+                    <li class="nav-item">
+                        <a class="nav-link  animated-link" id="gig" data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="toggle()">Worker Registration</a>
+                    </li>
+    
+                    <!-- Industry Registration Link -->
+                    <li class="nav-item">
+                        <a class="nav-link animated-link" href="industry_registration.html" id="industry">Industry Registration</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+<!-- Login Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content modal-arrival-animation">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <section id="login">
+                    <div class="form-container">
+                        <form action="login.php" method="post">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" class="form-control" required>
+
+                            <input type="submit" value="Login" class="btn btn-primary">
+                        </form>
+                        <div class="forgot-password">
+                            <button type="button" class="btn btn-link forgot-password-btn" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Forgot Password?</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary custom-btn" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Forgot Password Modal -->
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-arrival-animation">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="forgotPasswordLabel">Forgot Password</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="forgot_password.php" method="post">
+                    <label for="forgot-email">Email:</label>
+                    <input type="email" id="forgot-email" name="email" class="form-control" required>
+
+                    <label for="forgot-phone">Mobile Number:</label>
+                    <input type="text" id="forgot-phone" name="phone" class="form-control" required>
+
+                    <input type="submit" value="Reset Password" class="btn btn-primary">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary custom-btn" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Register Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-arrival-animation">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Gig Worker Registration</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <section id="registration">
+                    <div class="form-container">
+                        <p>Please fill out the form below to register as a gig worker.</p>
+                        <form action="register.php" method="post">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Full Name:</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone:</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="pincode" class="form-label">Pincode:</label>
+                                <input type="text" id="pincode" name="pincode" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="work-preference" class="form-label">Work Preference:</label>
+                                <input type="text" id="work-preference" name="work_preference" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="skills" class="form-label">Current Skills:</label>
+                                <textarea id="skills" name="skills" class="form-control" rows="4" required></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password:</label>
+                                <input type="password" id="password" name="password" class="form-control" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+  
+
+
+
+<div class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1>Welcome to GigConnect</h1>
+                <p>Empower your skills, connect with industries, and explore new opportunities. Start your journey with us and unlock your potential.</p>
+                <a href="tutorial.html" class="btn btn-hero">Get Started</a>
+            </div>
+            <div class="col-md-6 img-box">
+                <img src="i4.jpg" alt="GigConnect Opportunities">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- About Section -->
+    <section id="about">
+        <h3>About GigConnect</h3>
+        <p>GigConnect is an AI-powered platform designed to support gig workers in बुन्देलखण्ड. We connect small gig workers like artisans, construction laborers, and many others with job opportunities, help them develop new skills, and provide industry connections.</p>
+    </section>
+
+
+    <section id="how-it-works">
+        <h3>How GigConnect Works </h3>
+        <div class="steps-grid">
+            <div class="step-box">
+                <i class="fas fa-user-plus fa-2x"></i>
+                <h4>Sign Up & Create Profile</h4>
+                <p>Register with GigConnect and add details about your skills and location in Bundelkhand.</p>
+            </div>
+            <div class="step-box">
+                <i class="fas fa-robot fa-2x"></i>
+                <h4>AI-Based Job Matching</h4>
+                <p>Our AI matches you with local job opportunities based on your skill set and the demands in Bundelkhand.</p>
+            </div>
+            <div class="step-box">
+                <i class="fas fa-wrench fa-2x"></i>
+                <h4>Skill Enhancement with AI</h4>
+                <p>Receive personalized AI-powered recommendations for new skills to improve your job prospects in Bundelkhand.</p>
+            </div>
+            <div class="step-box">
+                <i class="fas fa-chart-line fa-2x"></i>
+                <h4>AI-Based Career Insights</h4>
+                <p>Leverage AI to gain insights into trending job opportunities and market demands in Bundelkhand, helping you stay competitive.</p>
+            </div>
+            <div class="step-box">
+                <i class="fas fa-bell fa-2x"></i>
+                <h4>Get Job Alerts</h4>
+                <p>Get real-time alerts for job openings in Bundelkhand that match your profile directly to your inbox.</p>
+            </div>
+            <div class="step-box">
+                <i class="fas fa-handshake fa-2x"></i>
+                <h4>Connect with Employers</h4>
+                <p>Engage with local employers in Bundelkhand and secure the right gigs to match your skills and experience.</p>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+
+
+   
+ <section id="features">
+    <h3>Platform Features</h3>
+    <div class="features-grid">
+        <div class="feature-box animated-box">
+            <img class="features-logo" src="job-matching.png" alt="Job Matching">
+            <h4>Job Matching</h4>
+            <p>Find jobs based on your skills and location.</p>
+        </div>
+        <div class="feature-box animated-box">
+            <img class="features-logo" src="skills.png" alt="Skill Development">
+            <h4>Skill Development</h4>
+            <p>Get recommendations for new skills to increase job opportunities.</p>
+        </div>
+        <div class="feature-box animated-box">
+            <img class="features-logo" src="whatsapp.png" alt="Alerts & Notifications">
+            <h4>Alerts &amp; Notifications</h4>
+            <p>Receive instant job alerts in your WhatsApp.</p>
+        </div>
+        <div class="feature-box animated-box">
+            <img class="features-logo" src="solidarity.png" alt="Community Support">
+            <h4>Community Support</h4>
+            <p>Connect with other gig workers and share opportunities.</p>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Gig Worker Registration Section -->
+<section class="registration-section">
+    <div class="registration-content-wrapper">
+        <div class="registration-image">
+            <img src="worker1.png" alt="Gig Worker">
+        </div>
+        <div class="registration-content">
+            <h1>Join GigConnect as a Gig Worker!</h1>
+            <p class="catchy-line">"Empowering gig workers, connecting you to opportunities."</p>
+            <p>Are you ready to showcase your skills and land more gigs? <strong>Register now</strong> and be part of the GigConnect community!</p>
+            <div class="button-container">
+                <button class="register-btn" onclick="registerAsGigWorker()">Register as Gig Worker</button>
+                
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function registerAsGigWorker(){
+    document.getElementById("gig").click(); }
+</script>
+
+
+
+<!-- Industry Registration Section -->
+<section class="registration-section">
+    <div class="registration-content-wrapper">
+        <div class="registration-image">
+            <img src="industry.png" alt="Industry">
+        </div>
+        <div class="registration-content">
+            <h1>Join GigConnect as an Industry Partner!</h1>
+            <p class="catchy-line">"Find the best gig talent, tailored to your needs."</p>
+            <p>Looking to hire skilled gig workers to get your projects done? <strong>Register now</strong> and connect with top gig talent in your area!</p>
+            <div class="button-container">
+                <button class="register-btn" onclick="registerAsIndustry()">Register as Industry</button>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function registerAsIndustry(){
+    document.getElementById("industry").click(); }
+</script>
+
+
+<!-- Login Section -->
+<section class="login-center-section">
+    <div class="login-content-wrapper">
+        <div class="login-image">
+            <img src="gigworkerlogin.png" alt="Gig Worker">
+        </div>
+        <div class="login-content">
+            <h2>Ready to Access Your Opportunities?</h2>
+            <p>Log in now to explore gigs tailored just for you!</p>
+            <button class="login-btn" onclick="openLoginModal()">Login as Gig Worker</button>
+        </div>
+    </div>
+</section>
+<script>
+    function openLoginModal(){
+    document.getElementById("giglogin").click(); }
+</script>
+
+
+<!-- Industries Section -->
+
+ <h1>Industries in Collaboration  </h1>
+    <div id="industries-container"></div>
+    <button id="load-more">Load More</button>
+
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content" >
+            <div id="logo" class="footer-logo" ><img src="logo.png" alt="GigConnect"></div>
+            <ul>
+                <li><a href="https://www.freejobalert.com/mp-government-jobs/" target="_blank">Jobs Information</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="mailto:ankitgour19168893@gmail.com">Contact Us</a></li> <!-- Email Link -->
+
+                <li><a href="tel:+919399484597">+91 9399484597</a></li> <!-- Phone Number -->
+            </ul>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/company/gigconnect-findyourfit" target="_blank"><img src="linkedin.png"></a>
+            </div>
+            <p >© 2024 GigConnect. All rights reserved.</p>
+        </div>
+       <div id="contact"></div>
+
+
+       <div id="google_translate_element"></div>
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+  }
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    </footer>
+    
+
+
+ 
+    
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+<script src="index.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body></html>
